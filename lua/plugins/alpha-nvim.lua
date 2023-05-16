@@ -3,30 +3,27 @@ return {
   event = "VimEnter",
   opts = function()
     local dashboard = require("alpha.themes.dashboard")
-    local logo =
-      [[NNNNNNNN        NNNNNNNN                               VVVVVVVV           VVVVVVVViiii                         
-N:::::::N       N::::::N                               V::::::V           V::::::i::::i                        
-N::::::::N      N::::::N                               V::::::V           V::::::Viiii                         
-N:::::::::N     N::::::N                               V::::::V           V::::::V                             
-N::::::::::N    N::::::N   eeeeeeeeeeee      oooooooooooV:::::V           V:::::iiiiiii   mmmmmmm    mmmmmmm   
-N:::::::::::N   N::::::N ee::::::::::::ee  oo:::::::::::oV:::::V         V:::::Vi:::::i mm:::::::m  m:::::::mm 
-N:::::::N::::N  N::::::Ne::::::eeeee:::::eo:::::::::::::::V:::::V       V:::::V  i::::im::::::::::mm::::::::::m
-N::::::N N::::N N::::::e::::::e     e:::::o:::::ooooo:::::oV:::::V     V:::::V   i::::im::::::::::::::::::::::m
-N::::::N  N::::N:::::::e:::::::eeeee::::::o::::o     o::::o V:::::V   V:::::V    i::::im:::::mmm::::::mmm:::::m
-N::::::N   N:::::::::::e:::::::::::::::::eo::::o     o::::o  V:::::V V:::::V     i::::im::::m   m::::m   m::::m
-N::::::N    N::::::::::e::::::eeeeeeeeeee o::::o     o::::o   V:::::V:::::V      i::::im::::m   m::::m   m::::m
-N::::::N     N:::::::::e:::::::e          o::::o     o::::o    V:::::::::V       i::::im::::m   m::::m   m::::m
-N::::::N      N::::::::e::::::::e         o:::::ooooo:::::o     V:::::::V       i::::::m::::m   m::::m   m::::m
-N::::::N       N:::::::Ne::::::::eeeeeeee o:::::::::::::::o      V:::::V        i::::::m::::m   m::::m   m::::m
-N::::::N        N::::::N ee:::::::::::::e  oo:::::::::::oo        V:::V         i::::::m::::m   m::::m   m::::m
-NNNNNNNN         NNNNNNN   eeeeeeeeeeeeee    ooooooooooo           VVV          iiiiiiimmmmmm   mmmmmm   mmmmmm]]
+    local logo = [[
+ __    __                   __     __ __              
+|  \  |  \                 |  \   |  \  \             
+| ▓▓\ | ▓▓ ______   ______ | ▓▓   | ▓▓\▓▓______ ____  
+| ▓▓▓\| ▓▓/      \ /      \| ▓▓   | ▓▓  \      \    \ 
+| ▓▓▓▓\ ▓▓  ▓▓▓▓▓▓\  ▓▓▓▓▓▓\\▓▓\ /  ▓▓ ▓▓ ▓▓▓▓▓▓\▓▓▓▓\
+| ▓▓\▓▓ ▓▓ ▓▓    ▓▓ ▓▓  | ▓▓ \▓▓\  ▓▓| ▓▓ ▓▓ | ▓▓ | ▓▓
+| ▓▓ \▓▓▓▓ ▓▓▓▓▓▓▓▓ ▓▓__/ ▓▓  \▓▓ ▓▓ | ▓▓ ▓▓ | ▓▓ | ▓▓
+| ▓▓  \▓▓▓\▓▓     \\▓▓    ▓▓   \▓▓▓  | ▓▓ ▓▓ | ▓▓ | ▓▓
+ \▓▓   \▓▓ \▓▓▓▓▓▓▓ \▓▓▓▓▓▓     \▓    \▓▓\▓▓  \▓▓  \▓▓
+      ]]
     dashboard.section.header.val = vim.split(logo, "\n")
     dashboard.section.buttons.val = {
       dashboard.button("f", "󰛔 " .. " Find file", ":Telescope find_files <CR>"),
       dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
       dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
       dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
+      dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
       dashboard.button("s", " " .. " Restore Session", [[:lua require("persistence").load() <cr>]]),
+      dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
+      dashboard.button("q", " " .. " Quit", ":qa<CR>"),
     }
     for _, button in ipairs(dashboard.section.buttons.val) do
       button.opts.hl = "AlphaButtons"
