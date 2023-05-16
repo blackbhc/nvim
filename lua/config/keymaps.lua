@@ -9,4 +9,3 @@ vim.keymap.set({ "n", "i" }, "<C-e>", "<Esc>A") -- C-e for insert at the end
 vim.keymap.set({ "o", "i" }, "<C-o>", "<Esc>o") -- C-o for insert a new line in insert/normal mode
 vim.keymap.set({ "i" }, "<C-h>", "<cmd>noh<cr>i") -- C-h to toggle hight in insert mode
 vim.keymap.set({ "n" }, "<C-h>", "<cmd>noh<cr>") -- C-h for toggle hight in normal mode
-vim.keymap.set({ "n", "i" }, "<C-c>", "<cmd>set fo-=cor<cr>") -- C-o for toggle auto comment in normal and inserr mode
