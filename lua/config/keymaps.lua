@@ -13,3 +13,4 @@ vim.keymap.set({ "i" }, "<C-h>", "<cmd>noh<cr>i") -- C-h to toggle hight in inse
 vim.keymap.set({ "n" }, "<C-h>", "<cmd>noh<cr>") -- C-h for toggle hight in normal mode
 vim.keymap.set({ "n", "i" }, "<C-s>", "<cmd>w<cr>") -- C-s for save in normal/insert mode
 vim.keymap.set({ "n", "i" }, "<C-q>", "<cmd>q<cr>") -- C-q for exit in normal/insert mode
+vim.keymap.set({ "n", "i" }, "<A-q>", "<cmd>q<cr>") -- A-q for exit in normal/insert mode
