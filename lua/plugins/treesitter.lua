@@ -72,6 +72,9 @@ return {
       -- Highlight the entire buffer all at once
       strategy = require("ts-rainbow").strategy.global,
     },
+    matchup = {
+      enable = true,
+    },
   },
   ---@param opts TSConfig
   config = function(_, opts)
