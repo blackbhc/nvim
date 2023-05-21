@@ -8,4 +8,4 @@ vim.keymap.set({ "n", "i" }, "<C-a>", "<Esc>I") -- C-a for insert at the begin o
 vim.keymap.set({ "n", "i" }, "<C-e>", "<Esc>A") -- C-e for insert at the end of line
 vim.keymap.set({ "n", "i" }, "<C-c>", "<Esc>GA") -- C-c for fast <Esc>
 vim.keymap.set({ "n", "i" }, "<C-q>", "<cmd>q<cr>") -- C-q for exit in normal/insert mode
-vim.keymap.set({ "n", "i" }, "<C-x>", "<cmd>q<cr>") -- C-q for exit in normal/insert mode
+vim.keymap.set({ "n", "i" }, "<C-x>", "<cmd>wq<cr>") -- C-q for exit in normal/insert mode
