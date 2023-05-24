@@ -1,6 +1,7 @@
 return {
   {
     "L3MON4D3/LuaSnip",
+    event = { "InsertEnter" },
     keys = function()
       return {}
     end,
