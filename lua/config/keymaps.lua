@@ -9,6 +9,3 @@ vim.keymap.set({ "n", "i" }, "<C-e>", "<Esc>A") -- C-e for insert at the end of 
 vim.keymap.set({ "n", "i" }, "<C-c>", "<Esc>") -- C-c for fast <Esc>
 vim.keymap.set({ "n", "i" }, "<C-q>", "<cmd>q<cr>") -- C-q for exit in normal/insert mode
 vim.keymap.set({ "n", "i" }, "<C-x>", "<cmd>wq<cr>") -- C-x for write and exit in normal/insert mode
-vim.keymap.set({ "n", "i" }, "H", "H") -- H for H
-vim.keymap.set({ "n", "i" }, "M", "M") -- H for H
-vim.keymap.set({ "n", "i" }, "L", "L") -- H for H
