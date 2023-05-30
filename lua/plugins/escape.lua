@@ -4,6 +4,6 @@ return {
   opts = {
     timeoutlen = 1,
     clear_empty_lines = false,
-    mapping = { "sj", "js" },
+    mapping = { "wj", "jw" },
   },
 }
