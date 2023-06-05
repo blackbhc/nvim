@@ -11,5 +11,5 @@ vim.keymap.set({ "n", "i" }, "<C-q>", "<cmd>q<cr>") -- C-q for exit in normal/in
 vim.keymap.set({ "n", "i" }, "<C-x>", "<cmd>wq<cr>") -- C-x for write and exit in normal/insert mode
 vim.keymap.set({ "i" }, "<A-b>", "<Esc>g e i") -- A-b for move to the previous word
 vim.keymap.set({ "i", "n" }, "<A-f>", "<Esc>ea") -- A-f for move to the next word
-vim.keymap.set({ "i", "n" }, "<A-d>", "<Esc>wdwi") -- A-b for move to the previous word
+vim.keymap.set({ "i", "n" }, "<A-d>", "<Esc>dwi") -- A-b for move to the previous word
 vim.keymap.set({ "i", "n" }, "<A-BS>", "<Esc>bdwi") -- A-f for move to the next word
