@@ -33,7 +33,7 @@ return {
           added = " ",
           modified = " ",
           removed = " ",
-          untracked = " ",
+          untracked = " ",
         },
         kinds = {
           Array = " ",
