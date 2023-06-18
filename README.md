@@ -13,3 +13,4 @@ Refer to the official [documentation](https://lazyvim.github.io/installation) to
 7. [sakhnik/nvim-gdb](https://github.com/sakhnik/nvim-gdb): an integration of gdb for neovim, which I prefer it than [nvim-dap](https://github.com/mfussenegger/nvim-dap).
 8. [HiPhish/nvim-ts-rainbow2](https://github.com/HiPhish/nvim-ts-rainbow2): rainbow brackets for neovim, 7 colors by default.
 9. [iamcco/markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim): markdown-previewer with default local browser.
+10. [karb94/neoscroll.nvim](https://github.com/karb94/neoscroll.nvim): for scrolling.
