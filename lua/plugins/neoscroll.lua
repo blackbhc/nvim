@@ -14,4 +14,5 @@ return {
       post_hook = nil, -- Function to run after the scrolling animation ends
     })
   end,
+  event = { "BufReadPre", "BufNewFile" },
 }
