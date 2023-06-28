@@ -43,6 +43,7 @@ return {
       "fortran",
       "gitignore",
       "html",
+      "ini",
       "javascript",
       "json",
       "latex",
