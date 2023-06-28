@@ -102,7 +102,7 @@ return {
       pyright = {
         -- mason = true, -- set to false if you don't want this server to be installed with mason
         cmd = { "pyright-langserver", "--stdio" },
-        filetypes = { "python" },
+        filetypes = { "py" },
         root_dir = require("lspconfig.util").root_pattern(
           ".git",
           "setup.py",
@@ -111,7 +111,7 @@ return {
           "requirements.txt"
         ),
         settings = {
-          python = {
+          py = {
             analysis = {
               autoSearchPaths = true,
               useLibraryCodeForTypes = true,
@@ -158,20 +158,6 @@ return {
         -- mason = true, -- set to false if you don't want this server to be installed with mason
         cmd = { "cmake-language-server" },
         filetypes = { "cmake" },
-        root_dir = require("lspconfig.util").root_pattern(".git", "Makefile", "meson.build", "CMakeLists.txt"),
-      },
-      -- java language server, with many features open
-      jdtls = {
-        -- mason = true, -- set to false if you don't want this server to be installed with mason
-        cmd = { "jdtls" },
-        filetypes = { "java" },
-        root_dir = require("lspconfig.util").root_pattern(".git", "Makefile", "meson.build", "CMakeLists.txt"),
-      },
-      -- html language server, with many features open
-      html = {
-        -- mason = true, -- set to false if you don't want this server to be installed with mason
-        cmd = { "html-languageserver", "--stdio" },
-        filetypes = { "html" },
         root_dir = require("lspconfig.util").root_pattern(".git", "Makefile", "meson.build", "CMakeLists.txt"),
       },
     },
