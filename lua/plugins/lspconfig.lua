@@ -69,87 +69,33 @@ return {
       -- c++ language server, with clangd as the default and with many features
       clangd = {
         mason = true, -- set to false if you don't want this server to be installed with mason
-        cmd = {
-          "clangd",
-          "--background-index",
-          "--clang-tidy",
-          "--completion-style=bundled",
-          "--header-insertion=iwyu",
-          "--suggest-missing-includes",
-          "--cross-file-rename",
-          "--clang-tidy-checks=-*,bugprone-*,cert-*,clang-analyzer-*,cppcoreguidelines-*,google-*,llvm-*,misc-*,modernize-*,performance-*,portability-*,readability-*",
-        },
-        filetypes = { "c", "cpp", "objc", "objcpp" },
-        root_dir = require("lspconfig.util").root_pattern("compile_commands.json", "compile_flags.txt", ".git"),
-        init_options = {
-          clangdFileStatus = true,
-          usePlaceholders = true,
-          completeUnimported = true,
-          semanticHighlighting = true,
-        },
-        settings = {
-          ccls = {
-            index = {
-              threads = 0,
-            },
-            clang = {
-              excludeArgs = { "-frounding-math" },
-            },
-          },
-        },
       },
       -- python language server, with many features open
       pylsp = {
         mason = true, -- set to false if you don't want this server to be installed with mason
-        cmd = { "pylsp" },
-        filetypes = { "python" },
-        root_dir = require("lspconfig.util").root_pattern(
-          ".git",
-          "setup.py",
-          "setup.cfg",
-          "pyproject.toml",
-          "requirements.txt"
-        ),
-      },
-
-      -- fortran language server, with many features open
-      fortls = {
-        mason = true, -- set to false if you don't want this server to be installed with mason
-        cmd = { "fortls" },
-        filetypes = { "fortran" },
-        root_dir = require("lspconfig.util").root_pattern(".git", "Makefile", "meson.build", "CMakeLists.txt"),
-      },
-      -- rust language server, with many features open
-      rust_analyzer = {
-        mason = true, -- set to false if you don't want this server to be installed with mason
-        cmd = { "rust-analyzer" },
-        filetypes = { "rust" },
-        root_dir = require("lspconfig.util").root_pattern("Cargo.toml", "rust-project.json", ".git"),
         settings = {
-          ["rust-analyzer"] = {
-            cargo = {
-              loadOutDirsFromCheck = true,
-            },
-            procMacro = {
-              enable = true,
+          pylsp = {
+            plugins = {
+              pycodestyle = {
+                ignore = { "W391" },
+                maxLineLength = 110,
+              },
+              black = {
+                enable = true,
+                line_length = 110,
+                preview = false,
+              },
             },
           },
         },
       },
+
+      -- fortran language server, with many features open
+      fortls = {},
       -- bash language server, with many features open
-      bashls = {
-        -- mason = true, -- set to false if you don't want this server to be installed with mason
-        cmd = { "bash-language-server", "start" },
-        filetypes = { "sh", "zsh", "bash" },
-        root_dir = require("lspconfig.util").root_pattern(".git", "Makefile", "meson.build", "CMakeLists.txt"),
-      },
+      bashls = {},
       -- cmake language server, with many features open
-      cmake = {
-        -- mason = true, -- set to false if you don't want this server to be installed with mason
-        cmd = { "cmake-language-server" },
-        filetypes = { "cmake" },
-        root_dir = require("lspconfig.util").root_pattern(".git", "Makefile", "meson.build", "CMakeLists.txt"),
-      },
+      cmake = {},
     },
     -- you can do any additional lsp server setup here
     -- return true if you don't want this server to be setup with lspconfig
