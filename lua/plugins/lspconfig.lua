@@ -54,7 +54,7 @@ return {
     servers = {
       jsonls = {},
       lua_ls = {
-        -- mason = false, -- set to false if you don't want this server to be installed with mason
+        mason = false, -- set to false if you don't want this server to be installed with mason
         settings = {
           Lua = {
             workspace = {
@@ -68,7 +68,7 @@ return {
       },
       -- c++ language server, with clangd as the default and with many features
       clangd = {
-        -- mason = true, -- set to false if you don't want this server to be installed with mason
+        mason = true, -- set to false if you don't want this server to be installed with mason
         cmd = {
           "clangd",
           "--background-index",
@@ -99,10 +99,10 @@ return {
         },
       },
       -- python language server, with many features open
-      pyright = {
-        -- mason = true, -- set to false if you don't want this server to be installed with mason
-        cmd = { "pyright-langserver", "--stdio" },
-        filetypes = { "py" },
+      pylsp = {
+        mason = true, -- set to false if you don't want this server to be installed with mason
+        cmd = { "pylsp" },
+        filetypes = { "python" },
         root_dir = require("lspconfig.util").root_pattern(
           ".git",
           "setup.py",
@@ -110,28 +110,18 @@ return {
           "pyproject.toml",
           "requirements.txt"
         ),
-        settings = {
-          py = {
-            analysis = {
-              autoSearchPaths = true,
-              useLibraryCodeForTypes = true,
-              diagnosticMode = "workspace",
-              typeCheckingMode = "basic",
-              stubPath = vim.fn.stdpath("data") .. "/stubs",
-            },
-          },
-        },
       },
+
       -- fortran language server, with many features open
       fortls = {
-        -- mason = true, -- set to false if you don't want this server to be installed with mason
+        mason = true, -- set to false if you don't want this server to be installed with mason
         cmd = { "fortls" },
         filetypes = { "fortran" },
         root_dir = require("lspconfig.util").root_pattern(".git", "Makefile", "meson.build", "CMakeLists.txt"),
       },
       -- rust language server, with many features open
       rust_analyzer = {
-        -- mason = true, -- set to false if you don't want this server to be installed with mason
+        mason = true, -- set to false if you don't want this server to be installed with mason
         cmd = { "rust-analyzer" },
         filetypes = { "rust" },
         root_dir = require("lspconfig.util").root_pattern("Cargo.toml", "rust-project.json", ".git"),
