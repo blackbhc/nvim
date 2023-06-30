@@ -105,7 +105,7 @@ return {
         root_dir = require("lspconfig/util").root_pattern(".git", "setup.py"),
         settings = {
           pylsp = {
-            configurationSources = { "flake8" },
+            configurationSources = { "pycodestyle" },
             plugins = {
               pycodestyle = {
                 ignore = { "W391" },
