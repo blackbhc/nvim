@@ -117,11 +117,26 @@ return {
       },
 
       -- fortran language server, with many features open
-      fortls = {},
+      fortls = {
+        mason = true, -- set to false if you don't want this server to be installed with mason
+        cmd = { "fortls" },
+        filetypes = { "fortran" },
+        root_dir = require("lspconfig/util").root_pattern(".git", "setup.py"),
+      },
       -- bash language server, with many features open
-      bashls = {},
+      bashls = {
+        mason = true, -- set to false if you don't want this server to be installed with mason
+        cmd = { "bash-language-server", "start" },
+        filetypes = { "sh", "zsh" },
+        root_dir = require("lspconfig/util").root_pattern(".git", "setup.py"),
+      },
       -- cmake language server, with many features open
-      cmake = {},
+      cmake = {
+        mason = true, -- set to false if you don't want this server to be installed with mason
+        cmd = { "cmake-language-server" },
+        filetypes = { "cmake" },
+        root_dir = require("lspconfig/util").root_pattern(".git", "setup.py"),
+      },
     },
     -- you can do any additional lsp server setup here
     -- return true if you don't want this server to be setup with lspconfig
