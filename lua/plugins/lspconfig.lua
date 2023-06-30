@@ -69,21 +69,47 @@ return {
       -- c++ language server, with clangd as the default and with many features
       clangd = {
         mason = true, -- set to false if you don't want this server to be installed with mason
+        cmd = { "clangd", "--background-index", "--clang-tidy", "--header-insertion=iwyu" },
+        filetypes = { "c", "cpp", "objc", "objcpp" },
+        root_dir = require("lspconfig/util").root_pattern("compile_commands.json", "compile_flags.txt", ".git"),
+        init_options = {
+          clangdFileStatus = true,
+          usePlaceholders = true,
+          completeUnimported = true,
+          semanticHighlighting = true,
+        },
+        handlers = {
+          ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+            virtual_text = false,
+            signs = true,
+            underline = true,
+            update_in_insert = true,
+          }),
+        },
+        settings = {
+          ccls = {
+            index = {
+              threads = 0,
+            },
+            clang = {
+              excludeArgs = { "-frounding-math" },
+            },
+          },
+        },
       },
       -- python language server, with many features open
       pylsp = {
         mason = true, -- set to false if you don't want this server to be installed with mason
+        cmd = { "pylsp" },
+        filetypes = { "python" },
+        root_dir = require("lspconfig/util").root_pattern(".git", "setup.py"),
         settings = {
           pylsp = {
+            configurationSources = { "flake8" },
             plugins = {
               pycodestyle = {
                 ignore = { "W391" },
                 maxLineLength = 110,
-              },
-              black = {
-                enable = true,
-                line_length = 110,
-                preview = false,
               },
             },
           },
