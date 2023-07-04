@@ -54,7 +54,7 @@ return {
     servers = {
       jsonls = {},
       lua_ls = {
-        mason = false, -- set to false if you don't want this server to be installed with mason
+        mason = true, -- set to false if you don't want this server to be installed with mason
         settings = {
           Lua = {
             workspace = {
@@ -97,7 +97,7 @@ return {
           },
         },
       },
-      -- python language server, with many features open
+      -- python language server, with black as the default formatter
       pylsp = {
         mason = true, -- set to false if you don't want this server to be installed with mason
         cmd = { "pylsp" },
@@ -105,11 +105,48 @@ return {
         root_dir = require("lspconfig/util").root_pattern(".git", "setup.py"),
         settings = {
           pylsp = {
-            configurationSources = { "pycodestyle" },
             plugins = {
               pycodestyle = {
-                ignore = { "W391" },
-                maxLineLength = 110,
+                enabled = false,
+              },
+              pydocstyle = {
+                enabled = false,
+              },
+              pylint = {
+                enabled = false,
+              },
+              flake8 = {
+                enabled = false,
+              },
+              jedi_completion = {
+                enabled = true,
+              },
+              jedi_hover = {
+                enabled = true,
+              },
+              jedi_references = {
+                enabled = true,
+              },
+              jedi_signature_help = {
+                enabled = true,
+              },
+              jedi_symbols = {
+                enabled = true,
+              },
+              mccabe = {
+                enabled = false,
+              },
+              preload = {
+                enabled = false,
+              },
+              pyflakes = {
+                enabled = false,
+              },
+              rope_completion = {
+                enabled = true,
+              },
+              yapf = {
+                enabled = true,
               },
             },
           },
