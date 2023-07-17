@@ -16,3 +16,4 @@ Refer to the official [documentation](https://lazyvim.github.io/installation) to
 9. [iamcco/markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim): markdown-previewer with default local browser.
 10. [karb94/neoscroll.nvim](https://github.com/karb94/neoscroll.nvim): for scrolling.
 11. [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim): comment plugin, better usage experience.
+12. [lervag/vimtex](https://github.com/lervag/vimtex): latex plugin.
