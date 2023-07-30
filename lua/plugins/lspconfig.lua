@@ -33,7 +33,7 @@ return {
     -- Be aware that you also will need to properly configure your LSP server to
     -- provide the inlay hints.
     inlay_hints = {
-      enabled = false,
+      enabled = true,
     },
     -- add any global capabilities here
     capabilities = {},
@@ -66,33 +66,34 @@ return {
           },
         },
       },
-      -- c++ language server, with clangd as the default and with many features
+      -- c++ language server, with clangd as the default and with many features open, especially for inlay hints
       clangd = {
         mason = true, -- set to false if you don't want this server to be installed with mason
-        cmd = { "clangd", "--background-index", "--clang-tidy", "--header-insertion=iwyu" },
+        cmd = {
+          "clangd",
+          "--background-index",
+          "--clang-tidy",
+          "--completion-style=bundled",
+          "--header-insertion=iwyu",
+          "--suggest-missing-includes",
+          "--cross-file-rename",
+          "--clang-tidy-checks=-*,bugprone-*,cert-*,clang-analyzer-*,cppcoreguidelines-*,google-*,llvm-*,misc-*,modernize-*,performance-*,portability-*,readability-*",
+        },
         filetypes = { "c", "cpp", "objc", "objcpp" },
-        root_dir = require("lspconfig/util").root_pattern("compile_commands.json", "compile_flags.txt", ".git"),
-        init_options = {
-          clangdFileStatus = true,
-          usePlaceholders = true,
-          completeUnimported = true,
-          semanticHighlighting = true,
-        },
-        handlers = {
-          ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-            virtual_text = false,
-            signs = true,
-            underline = true,
-            update_in_insert = true,
-          }),
-        },
+        root_dir = require("lspconfig/util").root_pattern(".git", "setup.py"),
         settings = {
-          ccls = {
-            index = {
-              threads = 0,
-            },
-            clang = {
-              excludeArgs = { "-frounding-math" },
+          -- clangd setup
+          clangd = {
+            -- InlayHints:
+            -- Designators: Yes
+            -- Enabled: Yes
+            -- ParameterNames: Yes
+            -- DeducedTypes: Yes
+            inlay_hints = {
+              parameterNames = true,
+              parameterTypes = true,
+              typeHints = true,
+              other = true,
             },
           },
         },
