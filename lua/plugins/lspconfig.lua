@@ -99,57 +99,16 @@ return {
         },
       },
       -- python language server, with black as the default formatter
-      pylsp = {
+      pylyzer = {
         mason = true, -- set to false if you don't want this server to be installed with mason
-        cmd = { "pylsp" },
+        cmd = { "pylyzer", "--server" },
         filetypes = { "python" },
-        root_dir = require("lspconfig/util").root_pattern(".git", "setup.py"),
         settings = {
-          pylsp = {
-            plugins = {
-              pycodestyle = {
-                enabled = false,
-              },
-              pydocstyle = {
-                enabled = false,
-              },
-              pylint = {
-                enabled = false,
-              },
-              flake8 = {
-                enabled = false,
-              },
-              jedi_completion = {
-                enabled = true,
-              },
-              jedi_hover = {
-                enabled = true,
-              },
-              jedi_references = {
-                enabled = true,
-              },
-              jedi_signature_help = {
-                enabled = true,
-              },
-              jedi_symbols = {
-                enabled = true,
-              },
-              mccabe = {
-                enabled = false,
-              },
-              preload = {
-                enabled = false,
-              },
-              pyflakes = {
-                enabled = false,
-              },
-              rope_completion = {
-                enabled = true,
-              },
-              yapf = {
-                enabled = true,
-              },
-            },
+          python = {
+            checkOnType = false,
+            diagnostics = true,
+            inlayHints = true,
+            smartCompletion = true,
           },
         },
       },
@@ -165,8 +124,13 @@ return {
       bashls = {
         mason = true, -- set to false if you don't want this server to be installed with mason
         cmd = { "bash-language-server", "start" },
-        filetypes = { "sh", "zsh" },
+        filetypes = { "sh", "zsh", "bash" },
         root_dir = require("lspconfig/util").root_pattern(".git", "setup.py"),
+        settings = {
+          bashIde = {
+            globPattern = "*@(.sh|.inc|.bash|.command)",
+          },
+        },
       },
       -- cmake language server, with many features open
       cmake = {
