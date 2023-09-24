@@ -115,7 +115,7 @@ return {
               command = "clippy",
             },
             diagnostics = {
-              enableExperimental = true,
+              enableExperimental = false,
             },
             inlayHints = {
               chainingHints = true,
