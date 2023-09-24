@@ -121,7 +121,7 @@ return {
               chainingHints = true,
               parameterHints = true,
               typeHints = true,
-              maxLength = 120,
+              maxLength = 60,
             },
             rustfmt = {
               extraArgs = { "+nightly" },
