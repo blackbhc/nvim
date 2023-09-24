@@ -98,6 +98,35 @@ return {
           },
         },
       },
+      rust_analyzer = {
+        mason = true, -- set to false if you don't want this server to be installed with mason
+        cmd = { "rust-analyzer" },
+        filetypes = { "rust" },
+        root_dir = require("lspconfig/util").root_pattern("Cargo.toml", "rust-project.json"),
+        settings = {
+          ["rust-analyzer"] = {
+            cargo = {
+              loadOutDirsFromCheck = true,
+            },
+            procMacro = {
+              enable = true,
+            },
+            checkOnSave = {
+              command = "clippy",
+            },
+            diagnostics = {
+              enableExperimental = true,
+            },
+            inlayHints = {
+              chainingHints = true,
+              parameterHints = true,
+              typeHints = true,
+              maxLength = 120,
+            },
+          },
+        },
+      },
+
       -- python language server, with black as the default formatter
       pyright = {
         mason = true, -- set to false if you don't want this server to be installed with mason
