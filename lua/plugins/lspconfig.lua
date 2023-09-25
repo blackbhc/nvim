@@ -142,7 +142,7 @@ return {
               autoSearchPaths = true,
               useLibraryCodeForTypes = true,
               diagnosticMode = "workspace",
-              typeCheckingMode = "basic",
+              typeCheckingMode = "off",
               stubPath = vim.fn.stdpath("data") .. "/stubs",
               stubs = {
                 "numpy-stubs",
