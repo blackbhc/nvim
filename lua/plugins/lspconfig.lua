@@ -99,7 +99,7 @@ return {
         },
       },
       rust_analyzer = {
-        mason = false, -- set to false if you don't want this server to be installed with mason
+        mason = true, -- set to false if you don't want this server to be installed with mason
         cmd = { "rust-analyzer" },
         filetypes = { "rust" },
         root_dir = require("lspconfig/util").root_pattern("Cargo.toml", "rust-project.json"),
