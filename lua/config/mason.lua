@@ -8,6 +8,7 @@ return {
       "stylua",
       "shfmt",
       "black",
+      "rust-analyzer",
     },
   },
   ---@param opts MasonSettings | {ensure_installed: string[]}

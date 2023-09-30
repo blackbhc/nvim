@@ -17,3 +17,6 @@ Refer to the official [documentation](https://lazyvim.github.io/installation) to
 10. [karb94/neoscroll.nvim](https://github.com/karb94/neoscroll.nvim): for scrolling.
 11. [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim): comment plugin, better usage experience.
 12. [lervag/vimtex](https://github.com/lervag/vimtex): latex plugin.
+13. [tpope/vim-repeate](https://github.com/tpope/vim-repeat): extend the some plugins' operations to repeatable with dot key.
+14. [gbprod/yanky.nvim](https://github.com/gbprod/yanky.nvim): better yank/paste experience with a clipboard history.
+15. [stevearc/conform.nvim](https://github.com/stevearc/conform.nvim): automatically be used as the formatter for all files that it supports.
