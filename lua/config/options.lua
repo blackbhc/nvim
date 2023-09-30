@@ -5,6 +5,7 @@
 -- This file is automatically loaded by plugins.config
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.cmd([[autocmd FileType * set formatoptions-=ro]])
 
 local opt = vim.opt
 
