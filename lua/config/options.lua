@@ -5,8 +5,8 @@
 -- This file is automatically loaded by plugins.config
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.o.termguicolors = true
 vim.cmd([[autocmd FileType * set formatoptions-=ro]])
-
 local opt = vim.opt
 
 opt.autowrite = true -- Enable auto write
