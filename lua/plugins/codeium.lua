@@ -1,6 +1,6 @@
 return {
-  "Exafunction/codeium.nvim",
+  "Exafunction/codeium.vim",
   cmd = "Codeium",
   build = ":Codeium Auth",
-  opts = {},
+  event = "BufEnter",
 }
