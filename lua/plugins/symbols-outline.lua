@@ -15,7 +15,6 @@ return {
         icon = Config.icons.kinds[kind] or symbol.icon,
         hl = symbol.hl,
       }
-      table.insert(opts.symbol_blacklist, kind)
     end
     return opts
   end,
