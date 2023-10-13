@@ -67,6 +67,7 @@ return {
                     "--suggest-missing-includes",
                     "--cross-file-rename",
                     "--clang-tidy-checks=-*,bugprone-*,cert-*,clang-analyzer-*,cppcoreguidelines-*,google-*,llvm-*,misc-*,modernize-*,performance-*,portability-*,readability-*",
+                    "--offset-encoding=utf-16",
                 },
                 filetypes = { "c", "cpp", "objc", "objcpp" },
                 root_dir = require("lspconfig/util").root_pattern(".git", "setup.py"),
