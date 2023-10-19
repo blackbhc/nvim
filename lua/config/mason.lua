@@ -8,6 +8,7 @@ return {
       "stylua",
       "shfmt",
       "black",
+      "racket_langserver",
       "rust-analyzer",
       "prettierd",
       "markdownlint",

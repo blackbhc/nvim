@@ -88,6 +88,13 @@ return {
           },
         },
       },
+      racket_langserver = {
+        mason = false, -- set to false if you don't want this server to be installed with mason
+        cmd = { "racket", "--lib", "racket-langserver" },
+        filetypes = { "racket", "scheme" },
+        root_dir = require("lspconfig/util").root_pattern(".git", "setup.py"),
+        single_file_support = true,
+      },
       rust_analyzer = {
         mason = true, -- set to false if you don't want this server to be installed with mason
         cmd = { "rust-analyzer" },

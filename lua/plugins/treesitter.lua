@@ -37,8 +37,9 @@ return {
     ensure_installed = {
       "bash",
       "c",
-      "cpp",
       "cmake",
+      "cpp",
+      "commonlisp",
       "fortran",
       "gitignore",
       "html",
@@ -52,6 +53,7 @@ return {
       "markdown_inline",
       "python",
       "query",
+      "racket",
       "regex",
       "rust",
       "toml",
