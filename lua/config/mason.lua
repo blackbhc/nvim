@@ -10,6 +10,8 @@ return {
       "black",
       "rust-analyzer",
       "prettierd",
+      "markdownlint",
+      "marksman",
     },
   },
   ---@param opts MasonSettings | {ensure_installed: string[]}
