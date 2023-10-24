@@ -70,7 +70,15 @@ return {
           "--offset-encoding=utf-16",
         },
         filetypes = { "c", "cpp", "objc", "objcpp" },
-        root_dir = require("lspconfig/util").root_pattern(".git", "setup.py"),
+        root_dir = require("lspconfig/util").root_pattern(
+          ".clangd",
+          ".clang-tidy",
+          ".clang-format",
+          "compile_commands.json",
+          "compile_flags.txt",
+          "configure.ac",
+          ".git"
+        ),
         settings = {
           -- clangd setup
           clangd = {
@@ -92,7 +100,7 @@ return {
         mason = false, -- set to false if you don't want this server to be installed with mason
         cmd = { "racket", "--lib", "racket-langserver" },
         filetypes = { "racket", "scheme" },
-        root_dir = require("lspconfig/util").root_pattern(".git", "setup.py"),
+        root_dir = require("lspconfig/util").root_pattern(".git"),
         single_file_support = true,
       },
       rust_analyzer = {
@@ -100,6 +108,267 @@ return {
         cmd = { "rust-analyzer" },
         filetypes = { "rust" },
         root_dir = require("lspconfig/util").root_pattern("Cargo.toml", "rust-project.json"),
+        capabilities = {
+          experimental = {
+            serverStatusNotification = true,
+          },
+          general = {
+            positionEncodings = { "utf-16" },
+          },
+          textDocument = {
+            callHierarchy = {
+              dynamicRegistration = false,
+            },
+            codeAction = {
+              codeActionLiteralSupport = {
+                codeActionKind = {
+                  valueSet = {
+                    "",
+                    "quickfix",
+                    "refactor",
+                    "refactor.extract",
+                    "refactor.inline",
+                    "refactor.rewrite",
+                    "source",
+                    "source.organizeImports",
+                  },
+                },
+              },
+              dataSupport = true,
+              dynamicRegistration = true,
+              isPreferredSupport = true,
+              resolveSupport = {
+                properties = { "edit" },
+              },
+            },
+            completion = {
+              completionItem = {
+                commitCharactersSupport = false,
+                deprecatedSupport = false,
+                documentationFormat = { "markdown", "plaintext" },
+                preselectSupport = false,
+                snippetSupport = false,
+              },
+              completionItemKind = {
+                valueSet = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25 },
+              },
+              contextSupport = false,
+              dynamicRegistration = false,
+            },
+            declaration = {
+              linkSupport = true,
+            },
+            definition = {
+              dynamicRegistration = true,
+              linkSupport = true,
+            },
+            diagnostic = {
+              dynamicRegistration = false,
+            },
+            documentHighlight = {
+              dynamicRegistration = false,
+            },
+            documentSymbol = {
+              dynamicRegistration = false,
+              hierarchicalDocumentSymbolSupport = true,
+              symbolKind = {
+                valueSet = {
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19,
+                  20,
+                  21,
+                  22,
+                  23,
+                  24,
+                  25,
+                  26,
+                },
+              },
+            },
+            formatting = {
+              dynamicRegistration = true,
+            },
+            hover = {
+              contentFormat = { "markdown", "plaintext" },
+              dynamicRegistration = true,
+            },
+            implementation = {
+              linkSupport = true,
+            },
+            inlayHint = {
+              dynamicRegistration = true,
+              resolveSupport = {
+                properties = {},
+              },
+            },
+            publishDiagnostics = {
+              dataSupport = true,
+              relatedInformation = true,
+              tagSupport = {
+                valueSet = { 1, 2 },
+              },
+            },
+            rangeFormatting = {
+              dynamicRegistration = true,
+            },
+            references = {
+              dynamicRegistration = false,
+            },
+            rename = {
+              dynamicRegistration = true,
+              prepareSupport = true,
+            },
+            semanticTokens = {
+              augmentsSyntaxTokens = true,
+              dynamicRegistration = false,
+              formats = { "relative" },
+              multilineTokenSupport = false,
+              overlappingTokenSupport = true,
+              requests = {
+                full = {
+                  delta = true,
+                },
+                range = false,
+              },
+              serverCancelSupport = false,
+              tokenModifiers = {
+                "declaration",
+                "definition",
+                "readonly",
+                "static",
+                "deprecated",
+                "abstract",
+                "async",
+                "modification",
+                "documentation",
+                "defaultLibrary",
+              },
+              tokenTypes = {
+                "namespace",
+                "type",
+                "class",
+                "enum",
+                "interface",
+                "struct",
+                "typeParameter",
+                "parameter",
+                "variable",
+                "property",
+                "enumMember",
+                "event",
+                "function",
+                "method",
+                "macro",
+                "keyword",
+                "modifier",
+                "comment",
+                "string",
+                "number",
+                "regexp",
+                "operator",
+                "decorator",
+              },
+            },
+            signatureHelp = {
+              dynamicRegistration = false,
+              signatureInformation = {
+                activeParameterSupport = true,
+                documentationFormat = { "markdown", "plaintext" },
+                parameterInformation = {
+                  labelOffsetSupport = true,
+                },
+              },
+            },
+            synchronization = {
+              didSave = true,
+              dynamicRegistration = false,
+              willSave = true,
+              willSaveWaitUntil = true,
+            },
+            typeDefinition = {
+              linkSupport = true,
+            },
+          },
+          window = {
+            showDocument = {
+              support = true,
+            },
+            showMessage = {
+              messageActionItem = {
+                additionalPropertiesSupport = false,
+              },
+            },
+            workDoneProgress = true,
+          },
+          workspace = {
+            applyEdit = true,
+            configuration = true,
+            didChangeWatchedFiles = {
+              dynamicRegistration = true,
+              relativePatternSupport = true,
+            },
+            inlayHint = {
+              refreshSupport = true,
+            },
+            semanticTokens = {
+              refreshSupport = true,
+            },
+            symbol = {
+              dynamicRegistration = false,
+              symbolKind = {
+                valueSet = {
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19,
+                  20,
+                  21,
+                  22,
+                  23,
+                  24,
+                  25,
+                  26,
+                },
+              },
+            },
+            workspaceEdit = {
+              resourceOperations = { "rename", "create", "delete" },
+            },
+            workspaceFolders = true,
+          },
+        },
         settings = {
           ["rust-analyzer"] = {
             cargo = {
@@ -174,14 +443,14 @@ return {
         mason = true, -- set to false if you don't want this server to be installed with mason
         cmd = { "fortls" },
         filetypes = { "fortran" },
-        root_dir = require("lspconfig/util").root_pattern(".git", "setup.py"),
+        root_dir = require("lspconfig/util").root_pattern(".fortls"),
       },
       -- bash language server, with many features open
       bashls = {
         mason = true, -- set to false if you don't want this server to be installed with mason
         cmd = { "bash-language-server", "start" },
         filetypes = { "sh", "zsh", "bash" },
-        root_dir = require("lspconfig/util").root_pattern(".git", "setup.py"),
+        root_dir = require("lspconfig/util").root_pattern(".git"),
         settings = {
           bashIde = {
             globPattern = "*@(.sh|.inc|.bash|.command)",
@@ -193,7 +462,20 @@ return {
         mason = true, -- set to false if you don't want this server to be installed with mason
         cmd = { "cmake-language-server" },
         filetypes = { "cmake" },
-        root_dir = require("lspconfig/util").root_pattern(".git", "setup.py"),
+        root_dir = require("lspconfig/util").root_pattern(
+          "CMakePresets.json",
+          "CTestConfig.cmake",
+          ".git",
+          "build",
+          "cmake"
+        ),
+      },
+      marksman = {
+        mason = true, -- set to false if you don't want this server to be installed with mason
+        cmd = { "marksman", "server" },
+        filetypes = { "markdown", "markdown.mdx" },
+        root_dir = require("lspconfig/util").root_pattern(".git", ".marksman.toml"),
+        single_file_support = true,
       },
     },
     -- you can do any additional lsp server setup here

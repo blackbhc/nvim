@@ -1,6 +1,6 @@
 return {
   "williamboman/mason.nvim",
-  cmd = "Mason",
+  cmd = { "Mason", "MasonInstall prettier" },
   keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
   build = ":MasonUpdate",
   opts = {
@@ -14,6 +14,13 @@ return {
       "prettierd",
       "markdownlint",
       "marksman",
+    },
+    ui = {
+      icons = {
+        package_installed = "✓",
+        package_pending = "➜",
+        package_uninstalled = "✗",
+      },
     },
   },
   ---@param opts MasonSettings | {ensure_installed: string[]}
