@@ -10,7 +10,7 @@ return {
       -- Or set both line and block commentstring
       .set("javascript", { "//%s", "/*%s*/" })
     -- 2. Metatable magic
-    ft.cpp = { "//%s", "/*\n%s\n*/" }
+    ft.cpp = { "//%s" }
     ft.ini = "#%s"
   end,
   event = "VeryLazy",
