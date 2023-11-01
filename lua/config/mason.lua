@@ -5,15 +5,11 @@ return {
   build = ":MasonUpdate",
   opts = {
     ensure_installed = {
-      "mdformat",
       "stylua",
       "shfmt",
       "black",
       "racket_langserver",
       "rust-analyzer",
-      "markdownlint",
-      "prettier",
-      "prettierd",
       "marksman",
     },
     ui = {
