@@ -1,8 +1,11 @@
 return {
   "stevearc/conform.nvim",
+  dependencies = "williamboman/mason.nvim",
   opts = {
     formatters_by_ft = {
       ["python"] = { "black" },
+      ["markdown"] = { "mdformat" },
+      ["markdown.mdx"] = { "mdformat" },
       ["javascript"] = { "prettier" },
       ["javascriptreact"] = { "prettier" },
       ["typescript"] = { "prettier" },
@@ -15,8 +18,6 @@ return {
       ["json"] = { "prettier" },
       ["jsonc"] = { "prettier" },
       ["yaml"] = { "prettier" },
-      ["markdown"] = { "prettier" },
-      ["markdown.mdx"] = { "prettier" },
       ["graphql"] = { "prettier" },
       ["handlebars"] = { "prettier" },
     },

@@ -1,18 +1,19 @@
 return {
   "williamboman/mason.nvim",
-  cmd = { "Mason", "MasonInstall prettier" },
+  cmd = "Mason",
   keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
   build = ":MasonUpdate",
   opts = {
     ensure_installed = {
+      "mdformat",
       "stylua",
       "shfmt",
       "black",
       "racket_langserver",
       "rust-analyzer",
+      "markdownlint",
       "prettier",
       "prettierd",
-      "markdownlint",
       "marksman",
     },
     ui = {
@@ -23,10 +24,19 @@ return {
       },
     },
   },
-  ---@param opts MasonSettings | {ensure_installed: string[]}
+  --@param opts MasonSettings | {ensure_installed: string[]}
   config = function(_, opts)
     require("mason").setup(opts)
     local mr = require("mason-registry")
+    mr:on("package:install:success", function()
+      vim.defer_fn(function()
+        -- trigger FileType event to possibly load this newly installed LSP server
+        require("lazy.core.handler.event").trigger({
+          event = "FileType",
+          buf = vim.api.nvim_get_current_buf(),
+        })
+      end, 100)
+    end)
     local function ensure_installed()
       for _, tool in ipairs(opts.ensure_installed) do
         local p = mr.get_package(tool)
