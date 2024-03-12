@@ -20,4 +20,3 @@ Refer to the official [documentation](https://lazyvim.github.io/installation) to
 12. [tpope/vim-repeate](https://github.com/tpope/vim-repeat): extend the some plugins' operations to repeatable with dot key.
 13. [gbprod/yanky.nvim](https://github.com/gbprod/yanky.nvim): better yank/paste experience with a clipboard history.
 14. [stevearc/conform.nvim](https://github.com/stevearc/conform.nvim): automatically be used as the formatter for all files that it supports.
-15. [simrat39/symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim): symbols outline for neovim.
