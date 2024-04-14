@@ -20,6 +20,7 @@ return {
       ["yaml"] = { "prettier" },
       ["graphql"] = { "prettier" },
       ["handlebars"] = { "prettier" },
+      ["typst"] = { "typstfmt" },
     },
   },
 }

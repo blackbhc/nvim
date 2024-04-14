@@ -41,7 +41,6 @@ return {
     -- LSP Server Settings
     ---@type lspconfig.options
     servers = {
-      jsonls = {},
       lua_ls = {
         mason = true, -- set to false if you don't want this server to be installed with mason
         settings = {
@@ -387,6 +386,12 @@ return {
           },
         },
       },
+      typst_lsp = {
+        mason = true,
+        cmd = { "typst-lsp" },
+        filetypes = { "typst" },
+        single_file_support = true,
+      },
 
       -- python language server, with black as the default formatter
       pyright = {
@@ -436,18 +441,6 @@ return {
         cmd = { "fortls" },
         filetypes = { "fortran" },
         root_dir = require("lspconfig/util").root_pattern(".fortls"),
-      },
-      -- bash language server, with many features open
-      bashls = {
-        mason = true, -- set to false if you don't want this server to be installed with mason
-        cmd = { "bash-language-server", "start" },
-        filetypes = { "sh", "zsh", "bash" },
-        root_dir = require("lspconfig/util").root_pattern(".git"),
-        settings = {
-          bashIde = {
-            globPattern = "*@(.sh|.inc|.bash|.command)",
-          },
-        },
       },
       -- cmake language server, with many features open
       cmake = {
