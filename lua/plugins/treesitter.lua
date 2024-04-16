@@ -62,6 +62,7 @@ return {
       "vim",
       "vimdoc",
       "yaml",
+      "typst",
     },
     incremental_selection = {
       enable = true,
