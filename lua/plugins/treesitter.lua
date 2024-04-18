@@ -41,6 +41,7 @@ return {
       "cpp",
       "commonlisp",
       "fortran",
+      "fish",
       "gitignore",
       "html",
       "json",
