@@ -10,6 +10,7 @@ return {
       "black",
       "racket_langserver",
       "rust-analyzer",
+      "markdownlint",
       "marksman",
     },
     ui = {
