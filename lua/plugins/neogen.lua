@@ -15,7 +15,7 @@ return {
       desc = "Generate doxygen comment for automatic type.",
     },
     {
-      "<leader>nf",
+      "<leader>nF",
       function()
         require("neogen").generate({ type = "file" })
       end,
