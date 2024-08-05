@@ -442,18 +442,7 @@ return {
         root_dir = require("lspconfig/util").root_pattern(".fortls"),
       },
       -- cmake language server, with many features open
-      cmake = {
-        mason = true, -- set to false if you don't want this server to be installed with mason
-        cmd = { "cmake-language-server" },
-        filetypes = { "cmake" },
-        root_dir = require("lspconfig/util").root_pattern(
-          "CMakePresets.json",
-          "CTestConfig.cmake",
-          ".git",
-          "build",
-          "cmake"
-        ),
-      },
+      neocmake = {},
       marksman = {
         mason = true, -- set to false if you don't want this server to be installed with mason
         cmd = { "marksman", "server" },

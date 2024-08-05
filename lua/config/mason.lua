@@ -12,6 +12,8 @@ return {
       "rust-analyzer",
       "markdownlint",
       "marksman",
+      "cmakelang",
+      "cmakelint",
     },
     ui = {
       icons = {
