@@ -14,6 +14,7 @@ return {
       "marksman",
       "cmakelang",
       "cmakelint",
+      "tex-fmt",
     },
     ui = {
       icons = {
