@@ -6,3 +6,4 @@
 vim.keymap.set("i", "<C-z>", "<Esc><C-z>") -- C-z in insert mode
 vim.keymap.set({ "n", "i" }, "<C-a>", "<Esc>I") -- C-a for insert at the begin of line
 vim.keymap.set({ "n", "i" }, "<C-e>", "<Esc>A") -- C-e for insert at the end of line
+vim.keymap.set({ "t" }, "<C-f>", "<Right>")
