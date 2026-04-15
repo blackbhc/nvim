@@ -5,7 +5,7 @@ return {
   opts = function()
     return {
       transparent = true,
-      style = "moon",
+      style = "day",
     }
   end,
 }
